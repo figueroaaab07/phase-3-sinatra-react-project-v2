@@ -1,4 +1,4 @@
-# FRONT END REPOSITORY: https://github.com/figueroaaab07/phase-3-react-project-frontend
+# FRONT END REPOSITORY: https://github.com/figueroaaab07/phase-3-react-project-frontend-v2
 # Phase 3 Project Guidelines
 
 ## Learning Goals
