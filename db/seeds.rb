@@ -1,5 +1,5 @@
 require 'date'
-require 'pry'
+# require 'pry'
 
 puts "🌱 Seeding spices..."
 puts "Patience please if it is the initial load, give yourself time to prepare a snack, and enjoy it!"
