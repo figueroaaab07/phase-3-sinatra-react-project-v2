@@ -14,6 +14,7 @@ class ApplicationController < Sinatra::Base
   get '/users/:id' do
     user = User.find(params[:id])
     user.to_json(include: [:apods])
+    # user.to_json
   end
 
   # Read - Get Request Apods by User ID
@@ -21,6 +22,7 @@ class ApplicationController < Sinatra::Base
     user = User.find(params[:id])
     user_apods = user.apods
     user_apods.to_json
+    # user.apods.to_json
   end
 
   # Create - Post Request User
@@ -30,8 +32,9 @@ class ApplicationController < Sinatra::Base
       last_name: params[:last_name],
       birth_date: params[:birth_date]
     })
-    new_apod_ids = Apod.select(:id).where("STRFTIME('%m-%d', date) = ?", (params[:birth_date])[5..9])
-    new_user.apods = Apod.find(new_apod_ids.map{ |h| h[:id].to_i })
+    # new_apod_ids = Apod.select(:id).where("STRFTIME('%m-%d', date) = ?", (params[:birth_date])[5..9])
+    new_apod_ids = Apod.select(:id).where("SUBSTRING(date FROM 6 FOR 10) = ?", (params[:birth_date])[5..9])
+    new_user.apods << Apod.find(new_apod_ids.map{ |h| h[:id].to_i })
     new_user.to_json(include: [:apods])
   end
 

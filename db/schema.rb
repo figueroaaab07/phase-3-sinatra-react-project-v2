@@ -26,9 +26,9 @@ ActiveRecord::Schema.define(version: 2022_08_18_062638) do
   end
 
   create_table "user_apods", force: :cascade do |t|
-    t.string "rating"
-    t.string "user_id"
-    t.string "apod_id"
+    t.bigint "rating"
+    t.bigint "user_id"
+    t.bigint "apod_id"
   end
 
   create_table "users", force: :cascade do |t|
